@@ -4,6 +4,7 @@ import Counter from "./Counter";
 import Search from "./Search";
 import Translate from "./Translate";
 import Dropdown from "./Dropdown";
+import Route from "./Route";
 
 const items = [
 	{
@@ -36,27 +37,35 @@ const options = [
 ];
 
 const App = () => {
-	//const [selected, setSelected] = useState(options[0]);
-	//const [showDropdown, setShowDropdown] = useState(true);
+	const [selected, setSelected] = useState(options[0]);
+	const [showDropdown, setShowDropdown] = useState(true);
 
 	return (
 		<div>
-			<Translate />
-
-			{/* <button onClick={() => setShowDropdown(!showDropdown)}>
-				Toggle dropdown
-			</button>
-			{showDropdown ? (
-				<Dropdown
-					selected={selected}
-					onSelectedChange={setSelected}
-					options={options}
-				/>
-			) : null} */}
-
-			{/* <Search />
-			<Accordion items={items} />
-			<Counter /> */}
+			<Route path="/">
+				<Accordion items={items} />
+			</Route>
+			<Route path="/translate">
+				<Translate />
+			</Route>
+			<Route path="/dropdown">
+				<button onClick={() => setShowDropdown(!showDropdown)}>
+					Toggle dropdown
+				</button>
+				{showDropdown ? (
+					<Dropdown
+						selected={selected}
+						onSelectedChange={setSelected}
+						options={options}
+					/>
+				) : null}
+			</Route>
+			<Route path="/search">
+				<Search />
+			</Route>
+			<Route path="/counter">
+				<Counter />
+			</Route>
 		</div>
 	);
 };
