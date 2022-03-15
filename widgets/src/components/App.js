@@ -1,5 +1,10 @@
 import React from "react";
 import Accordion from "./Accordion";
+import Counter from "./Counter";
+import Search from "./Search";
+
+const query =
+	"http://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch=programming";
 
 const items = [
 	{
@@ -19,7 +24,9 @@ const items = [
 const App = () => {
 	return (
 		<div>
-			<Accordion items={items} />
+			<Search />
+			{/* <Accordion items={items} />
+			<Counter /> */}
 		</div>
 	);
 };
