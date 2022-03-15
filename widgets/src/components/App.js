@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import Accordion from "./Accordion";
 import Counter from "./Counter";
 import Search from "./Search";
+import Translate from "./Translate";
 import Dropdown from "./Dropdown";
-
-const query =
-	"http://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch=programming";
 
 const items = [
 	{
@@ -38,12 +36,14 @@ const options = [
 ];
 
 const App = () => {
-	const [selected, setSelected] = useState(options[0]);
-	const [showDropdown, setShowDropdown] = useState(true);
+	//const [selected, setSelected] = useState(options[0]);
+	//const [showDropdown, setShowDropdown] = useState(true);
 
 	return (
 		<div>
-			<button onClick={() => setShowDropdown(!showDropdown)}>
+			<Translate />
+
+			{/* <button onClick={() => setShowDropdown(!showDropdown)}>
 				Toggle dropdown
 			</button>
 			{showDropdown ? (
@@ -52,7 +52,7 @@ const App = () => {
 					onSelectedChange={setSelected}
 					options={options}
 				/>
-			) : null}
+			) : null} */}
 
 			{/* <Search />
 			<Accordion items={items} />
