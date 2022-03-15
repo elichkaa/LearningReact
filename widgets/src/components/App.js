@@ -5,6 +5,7 @@ import Search from "./Search";
 import Translate from "./Translate";
 import Dropdown from "./Dropdown";
 import Route from "./Route";
+import Header from "./Header";
 
 const items = [
 	{
@@ -42,6 +43,7 @@ const App = () => {
 
 	return (
 		<div>
+			<Header />
 			<Route path="/">
 				<Accordion items={items} />
 			</Route>
