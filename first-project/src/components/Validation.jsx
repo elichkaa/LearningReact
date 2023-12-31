@@ -11,6 +11,7 @@ function Validation({ textLength }) {
 
   return (
     <>
+      <p>Length of text you entered: {textLength}</p>
       <p>{outputMesage}</p>
     </>
   );

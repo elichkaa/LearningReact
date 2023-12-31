@@ -52,7 +52,6 @@ function App() {
         onChange={handleTextChange}
         type="text"
       />
-      <p>Length of text you entered: {text.length}</p>
       <Validation textLength={text.length} />
       <Char letter={text[index]} />
       <HarryPotterCharacterList />

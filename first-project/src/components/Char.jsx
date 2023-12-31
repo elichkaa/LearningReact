@@ -1,5 +1,14 @@
 import React, { useState } from "react";
 import "../styling/Char.css";
+import styled from "styled-components";
+
+const CharStyled = styled.p`
+  display: inline-block;
+  padding: 16px;
+  text-align: center;
+  margin: 16px;
+  text-decoration: ${(props) => (props.visible ? "None" : "line-through")};
+`;
 
 function Char({ letter }) {
   const [char, showChar] = useState(true);
@@ -8,17 +17,14 @@ function Char({ letter }) {
     showChar(!char);
   };
 
-  let charEl = null;
-
-  if (char) {
-    charEl = (
-      <p id="custom" onClick={handleClick}>
+  return (
+    <>
+      <p>Click on letter to remove it:</p>
+      <CharStyled visible={char} onClick={handleClick}>
         {letter}
-      </p>
-    );
-  }
-
-  return <>{charEl}</>;
+      </CharStyled>
+    </>
+  );
 }
 
 export default Char;
