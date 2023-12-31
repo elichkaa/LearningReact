@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function fetchHarryPotterCharacters() {
+function useHarryPotterCharacters() {
   const [characters, setCharacters] = useState(null);
 
   useEffect(() => {
@@ -17,9 +17,9 @@ function fetchHarryPotterCharacters() {
     };
 
     fetchData();
-  }, []);
+  }, [characters]);
 
   return characters;
 }
 
-export default fetchHarryPotterCharacters;
+export default useHarryPotterCharacters;

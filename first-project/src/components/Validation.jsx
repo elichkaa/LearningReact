@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 function Validation({ textLength }) {
   let outputMesage = "";
@@ -16,5 +16,9 @@ function Validation({ textLength }) {
     </>
   );
 }
+
+Validation.propTypes = {
+  textLength: PropTypes.number.isRequired,
+};
 
 export default Validation;

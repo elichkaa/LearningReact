@@ -1,30 +1,40 @@
-import React, { useState } from "react";
-import "../styling/Char.css";
+import { useState } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const CharStyled = styled.p`
   display: inline-block;
-  padding: 16px;
   text-align: center;
   margin: 16px;
-  text-decoration: ${(props) => (props.visible ? "None" : "line-through")};
+  border: 1px solid black;
+  color: ${(props) => (props.visible ? "white" : "transparent")};
 `;
 
-function Char({ letter }) {
+function Char({ letter, visible }) {
   const [char, showChar] = useState(true);
 
-  const handleClick = (event) => {
+  const handleClick = () => {
     showChar(!char);
+    visible = !char;
   };
+
+  if (!char) {
+    visible = true;
+  }
 
   return (
     <>
-      <p>Click on letter to remove it:</p>
-      <CharStyled visible={char} onClick={handleClick}>
+      <p>Click on letter to hide it:</p>
+      <CharStyled visible={visible} onClick={handleClick}>
         {letter}
       </CharStyled>
     </>
   );
 }
+
+Char.propTypes = {
+  letter: PropTypes.string,
+  visible: PropTypes.bool,
+};
 
 export default Char;

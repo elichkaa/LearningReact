@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function Picture() {
   const [pic, showPic] = useState(false);
 
-  const handleClick = (event) => {
+  const handleClick = () => {
     showPic(!pic);
   };
 

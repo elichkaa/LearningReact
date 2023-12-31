@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./styling/App.css";
 import UserInput from "./components/UserInput";
 import UserOutput from "./components/UserOutput";
@@ -45,7 +45,7 @@ function App() {
         onChange={handleAgeChange}
         type="number"
       />
-      <UserOutput styleName="card" name={username} age={age} />
+      <UserOutput name={username} age={age} />
       <UserInput
         description="Enter text:"
         value={text}

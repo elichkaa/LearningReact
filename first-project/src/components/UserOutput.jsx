@@ -1,14 +1,25 @@
-import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-function UserOutput({ name, age, styleName }) {
+const UserOutputStyled = styled.div`
+  padding: 1em;
+  color: pink;
+`;
+
+function UserOutput({ name, age }) {
   return (
     <>
-      <div className={styleName}>
+      <UserOutputStyled>
         <p>User: {name}</p>
         <p>Age: {age}</p>
-      </div>
+      </UserOutputStyled>
     </>
   );
 }
+
+UserOutput.propTypes = {
+  name: PropTypes.string.isRequired,
+  age: PropTypes.string.isRequired,
+};
 
 export default UserOutput;

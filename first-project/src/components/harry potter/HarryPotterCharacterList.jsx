@@ -1,10 +1,9 @@
-import React from "react";
-import fetchHarryPotterCharacters from "../../hooks/fetchHarryPotterCharacters";
+import useHarryPotterCharacters from "../../hooks/useHarryPotterCharacters";
 import HarryPotterCharacter from "./HarryPotterCharacter";
 import { Grid } from "@mui/material";
 
 function HarryPotterCharacterList() {
-  const characters = fetchHarryPotterCharacters();
+  const characters = useHarryPotterCharacters();
 
   return (
     <>
@@ -16,20 +15,13 @@ function HarryPotterCharacterList() {
         alignItems="flex-start"
       >
         {characters &&
-          characters.map((character) => {
-            return (
-              <>
-                {character.image ? (
-                  <Grid item xs={2}>
-                    <HarryPotterCharacter
-                      key={character.id}
-                      character={character}
-                    />
-                  </Grid>
-                ) : null}
-              </>
-            );
-          })}
+          characters.map((character) =>
+            character.image ? (
+              <Grid item xs={2} key={character.id}>
+                <HarryPotterCharacter character={character} />
+              </Grid>
+            ) : null
+          )}
       </Grid>
     </>
   );
